@@ -32,4 +32,5 @@ Route::get('/about', function () {
 
 Route::get('/blog', [PostController::class, 'index']);
 
-Route::get('/Blog/{slug}', [PostController::class, 'showPost']);
+// defaultnya jika mengetikan {post} saja, maka yang akan dicari adalah id, dan jika diketikan {post:slug} yang dicari adalah slug nya
+Route::get('/Blog/{post:slug}', [PostController::class, 'show']);
