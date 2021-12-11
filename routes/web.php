@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\PostController;
@@ -33,4 +34,6 @@ Route::get('/about', function () {
 Route::get('/blog', [PostController::class, 'index']);
 
 // defaultnya jika mengetikan {post} saja, maka yang akan dicari adalah id, dan jika diketikan {post:slug} yang dicari adalah slug nya
-Route::get('/Blog/{post:slug}', [PostController::class, 'show']);
+Route::get('/blog/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/category/{category:slug}', [CategoryController::class, 'show']);
