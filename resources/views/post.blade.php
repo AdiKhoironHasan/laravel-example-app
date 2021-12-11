@@ -4,11 +4,15 @@
 @section('container')
 
     <article class="mb-5">
-        <h1><a href="/post/{{ $post->slug }}">{{ $post->title }}</a></h1>
-        <h3>In: <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a></h3>
+        <h1>{{ $post->title }}</h1>
+        <h3>By: <a href="#" class="text-decoration-none">{{ $post->user->name }}</a></h3>
+        <h3>In: <a href="/categories/{{ $post->category->slug }}"
+                class="text-decoration-none">{{ $post->category->name }}</a>
+        </h3>
         {{-- {!! $var !!} untuk menampilkan data tanpa escape, tag html dijalankan --}}
         {!! $post->body !!}
     </article>
-    <a href="/blog">Back To Blog</a>
+
+    <h5><a class="text-decoration-none" href="/blog">Back to blog</a></h5>
 
 @endsection

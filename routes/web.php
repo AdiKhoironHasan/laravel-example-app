@@ -36,4 +36,6 @@ Route::get('/blog', [PostController::class, 'index']);
 // defaultnya jika mengetikan {post} saja, maka yang akan dicari adalah id, dan jika diketikan {post:slug} yang dicari adalah slug nya
 Route::get('/blog/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/category/{category:slug}', [CategoryController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
