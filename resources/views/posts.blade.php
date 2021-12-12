@@ -3,9 +3,7 @@
 
 @extends('layouts/main')
 @section('container')
-    <h1>Lihat <a class="text-decoration-none" href="/categories">Post Categories</a></h1>
-    <h1>Lihat <a class="text-decoration-none" href="/authors">Post Authors</a></h1>
-
+    <h1>{{ $title }}</h1>
     @foreach ($posts as $post)
         <article class="mt-5">
             <h1>{{ $post->title }}</h1>

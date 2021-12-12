@@ -18,10 +18,9 @@ class UserController extends Controller
 
     public function show(User $author)
     {
-        return view('author', [
-            "title" => "Author Posts",
-            "author" => $author->name,
-            "posts" => $author->posts
+        return view('posts', [
+            "title" => "Posts By Author : $author->name",
+            "posts" => $author->posts, //author dan category dipanggil di posts.blade.php
         ]);
     }
 }
