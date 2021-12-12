@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +41,7 @@ Route::get('/blog/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
+
+Route::get('/authors', [UserController::class, 'index']);
+
+Route::get('/authors/{author:username}', ([UserController::class, 'show']));

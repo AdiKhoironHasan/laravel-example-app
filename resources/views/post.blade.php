@@ -5,7 +5,9 @@
 
     <article class="mb-5">
         <h1>{{ $post->title }}</h1>
-        <h3>By: <a href="#" class="text-decoration-none">{{ $post->user->name }}</a></h3>
+        <h3>By: <a href="/authors/{{ $post->author->username }}"
+                class="text-decoration-none">{{ $post->author->name }}</a>
+        </h3>
         <h3>In: <a href="/categories/{{ $post->category->slug }}"
                 class="text-decoration-none">{{ $post->category->name }}</a>
         </h3>

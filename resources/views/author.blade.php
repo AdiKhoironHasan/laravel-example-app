@@ -5,8 +5,7 @@
 
 @section('container')
 
-    <h1>Category {{ $category }}</h1>
-
+    <h1>Authors by : {{ $author }}</h1>
     @foreach ($posts as $post)
         <article class="mt-5">
             <h1>{{ $post->title }}</h1>

@@ -14,13 +14,19 @@ class Post extends Model
     // tidak boleh diisi
     protected $guarded = ['id'];
 
-    public function Category()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function User()
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id'); //user_id sebagai parameter alias untuk author, karena tidak ada author_id
     }
 }
