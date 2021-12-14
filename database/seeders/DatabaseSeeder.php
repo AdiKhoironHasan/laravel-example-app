@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             "slug" => "network-support"
         ]);
 
-        Post::factory(2000)->create();
+        Post::factory(200)->create();
 
         // Post::create([
         //     "category_id" => 1,

@@ -20,13 +20,15 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "active" => "home",
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
+        "active" => "about",
         "name" => "Adi Khoiron Hasan",
         "email" => "adieron97@gmail.com",
         "image" => "profile.png"

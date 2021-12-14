@@ -12,6 +12,7 @@ class UserController extends Controller
     {
         return view('authors', [
             "title" => "Authors",
+            "active" => "authors",
             "authors" => User::all()
         ]);
     }
@@ -20,6 +21,7 @@ class UserController extends Controller
     {
         return view('posts', [
             "title" => "Posts By Author : $author->name",
+            "active" => "posts",
             "posts" => $author->posts, //author dan category dipanggil di posts.blade.php
         ]);
     }
