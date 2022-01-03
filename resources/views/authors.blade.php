@@ -10,7 +10,7 @@
 <ul>
     @foreach ($authors as $author)
     <li>
-        <h3><a class="text-decoration-none" href="/authors/{{ $author->username }}">{{ $author->name }}</a></h3>
+        <h3><a class="text-decoration-none" href="/blog?author={{ $author->username }}">{{ $author->name }}</a></h3>
     </li>
     @endforeach
 </ul>
