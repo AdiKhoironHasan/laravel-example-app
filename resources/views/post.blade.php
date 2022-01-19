@@ -11,7 +11,7 @@
             {{-- {!! $var !!} untuk menampilkan data tanpa escape, tag html dijalankan --}}
             {{-- <img src="img/lee.jpg" width="1200" height="400" class="card-img-top" alt="{{ $post->category->name }}"> --}}
             {{-- <img src="https://source.unsplash.com/120x40?{{ $post->category->name }}" class="card-img-top py-3" alt="{{ $post->category->name }}"> --}}
-            <img src="img/{{ $post->category->slug }}" class="card-img-top py-3" alt="{{ $post->category->slug }}">
+            <img src="/img/{{ $post->category->slug }}.jpg" width="1200" height="400" class="card-img-top" alt="{{ $post->category->slug }}">
             <article class="mb-5">
                 {!! $post->body !!}
             </article>

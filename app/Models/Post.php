@@ -57,4 +57,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id'); //user_id sebagai parameter alias untuk author, karena tidak ada author_id
     }
+
+    // Route Model Binding Customizing The Key, untuk mencari post pada model post dengan berdasarkan slug, dari sebelumnya default (dengan id)
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
