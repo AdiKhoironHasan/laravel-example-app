@@ -14,7 +14,6 @@
 
                 {!! $post->body !!}
             </article>
-            <h5><a class="text-decoration-none btn btn-primary" href="/blog">Back to blog</a></h5>
         </div>
     </div>
 </div>
