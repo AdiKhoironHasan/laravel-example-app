@@ -9,7 +9,8 @@
             </li>
             <li class="nav-item">
                 {{-- mengambil url dari request --}}
-                <a class="nav-link {{ Request::is('dashboard/posts') ? 'active' : '' }}" href="/dashboard/posts">
+                {{-- tanda * menandakan semua sub dari posts misal posts/create --}}
+                <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
                     <span data-feather="file-text"></span>
                     My Posts
                 </a>
