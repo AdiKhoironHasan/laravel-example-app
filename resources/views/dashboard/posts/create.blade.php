@@ -4,9 +4,9 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Create new Posts</h1>
 </div>
-<form action="/dashboard/posts" method="POST">
+<form action="/dashboard/posts" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="mb-3">
+    <div class=" mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title') }}" required autofocus>
         @error('title')
@@ -18,7 +18,6 @@
     <div class="mb-3">
         <label for="slug" class="form-label">Slug</label>
         <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" value="{{ old('slug') }}" required>
-
         @error('slug')
         <div class="invalid-feedback">
             {{ $message }}
@@ -38,6 +37,16 @@
             @endif
             @endforeach
         </select>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Post Image</label>
+        <img class="img-preview img-fluid mb-3 col-sm-5">
+        <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="imagePreview()">
+        @error('image')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
     <div class="mb-3">
         <label for="slug" class="form-label">Body</label>
@@ -70,6 +79,21 @@
     document.addEventListener('trix-file-accept', function(e) {
         e.preventDefault();
     })
+
+
+    imagePreview() {
+        const image = document.querySelector('#image'); //id
+        const imgPreview = document.querySelector('.img-preview'); //class
+
+        imgPreview.style.display = block;
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
 
 </script>
 

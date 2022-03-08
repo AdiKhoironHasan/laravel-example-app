@@ -44,13 +44,25 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
+        // dump, die, and debug
+        // ddd($request);
+
+        // image = nama file input, post-images = nama folder penyimpanan
+        // return $request->file('image')->store('post-images');
+
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             // slug unique dari tabel posts
             'slug' => 'required|unique:posts|',
             'category_id' => 'required',
+            // satuan dalam kb, file untuk mengidentifikasi file
+            'image' => 'image|file|max:1024|mimes:jpeg,png,jpg',
             'body' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         // strip_tags($request->body) menghilangkan semua tag html dalam $request->body

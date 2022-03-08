@@ -66,5 +66,4 @@ Route::get('/dashboard/posts/getslug', [DashboardPostController::class, 'makeSlu
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 // jika method get akan mengarah ke index()
 // jika method post akan mengarah ke store()
-// jika method post akan mengarah ke store()
 // jika method delete akan mengarah ke destroy()

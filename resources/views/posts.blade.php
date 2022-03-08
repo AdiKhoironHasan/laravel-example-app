@@ -26,7 +26,15 @@
 @if ($posts->count())
 <div class="card mb-3">
     {{-- <img src="https://source.unsplash.com/120x40?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{ $posts[0]->category->name }}"> --}}
+
+    @if ($posts[0]->image)
+    <div style="max-height: 400px; overflow:hidden">
+        <img src="{{ asset('storage/'.$posts[0]->image) }}" class="card-img-top" alt="{{ $posts[0]->category->slug }}">
+    </div>
+    @else
     <img src="img/{{ $posts[0]->category->slug }}.jpg" width="1200" height="400" class="card-img-top" alt="{{ $posts[0]->category->slug }}">
+    @endif
+
     <div class="card-body text-center">
         <h5 class="card-title">{{ $posts[0]->title }}</h5>
         <p class="card-text"><small class="text-muted">By. <a href="/blog?author={{ $posts[0]->author->username }}" class="text-decoration-none">{{ $posts[0]->author->name }}</a> {{ $posts[0]->updated_at->diffForHumans() }}</small></p>
@@ -44,7 +52,13 @@
                     <a href="/blog?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a>
                 </div>
                 {{-- <img src="https://source.unsplash.com/100x100?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}"> --}}
-                <img src="img/{{ $post->category->slug }}.jpg" width="400" height="400" class="card-img-top" alt="{{ $post->category->slug }}">
+
+                @if ($post->image)
+                <img src="{{ asset('storage/'.$post->image) }}" class="card-img-top" alt="{{ $post->category->slug }}">
+                @else
+                <img src="/img/{{ $post->category->slug }}.jpg" width="1200" height="400" class="card-img-top my-3" alt="{{ $post->category->slug }}">
+                @endif
+
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p class="card-text"><small class="text-muted">By. <a href="/blog?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> {{ $post->updated_at->diffForHumans() }}</small></p>

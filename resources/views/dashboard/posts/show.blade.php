@@ -15,10 +15,15 @@
                 <button class="btn btn-danger" onclick="return confirm('Are u sure?')">Delete</span></button>
             </form>
 
-
+            @if ($post->image)
+            <div style="max-height: 400px; overflow:hidden">
+                <img src="{{ asset('storage/'.$post->image) }}" class="card-img-top my-3" alt="{{ $post->category->slug }}">
+            </div>
+            @else
             <img src="/img/{{ $post->category->slug }}.jpg" width="1200" height="400" class="card-img-top my-3" alt="{{ $post->category->slug }}">
-            <article class="mb-5">
+            @endif
 
+            <article class="mb-5">
                 {!! $post->body !!}
             </article>
         </div>
